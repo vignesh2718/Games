@@ -1,0 +1,438 @@
+/* CSS for Body */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  /* background-image: url(../img/bgi.png);
+  background-size: cover;
+  width: 100%; */
+  background: url(../img/bgi.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* background-repeat: no-repeat; */
+  /* overflow: hidden; */
+}
+
+/* CSS for Header */
+
+.title {
+  text-align: center;
+  size: 40px;
+}
+
+.tag-line {
+  text-align: center;
+  color: White;
+}
+
+/* CSS for Container */
+
+.container {
+  height: 100%;
+}
+
+/* CSS for Board and it's Contents*/
+
+.board {
+  height: 100%;
+}
+
+.flip-container {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.fliprow {
+  height: 100%;
+  z-index: 2;
+  display: none;
+}
+
+.flipper {
+  transition-timing-function: ease-in;
+  transition: 0.6s;
+  /* flip speed goes here */
+  transform-style: preserve-3d;
+  position: relative;
+  float: left;
+  height: 24%;
+  width: 24%;
+  padding: 0.1%;
+  margin: 0.3%;
+}
+
+.card {
+  width: 90%;
+  height: 90%;
+  margin: 10px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+/* CSS for Footer and its Contents */
+
+.foot {
+  display: none;
+}
+
+.counter {
+  text-align: right;
+}
+
+/* To change the color of text if the following options are not visible (optional) */
+
+/* .rating, */
+
+/* .refresh { */
+
+/* color: white; */
+
+/* -webkit-text-stroke: 2px black; */
+
+/* } */
+
+/* The START Modal (cover) */
+
+#startModal {
+  z-index: 3;
+  /* overflow: hidden; */
+  height: 81vh;
+}
+
+.startContent {
+  background: url(../img/start.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  margin: auto;
+  padding-top: 10vh;
+  border: 1px solid #888;
+  height: 85%;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+#start {
+  margin-top: 45vh;
+  margin-left: 45%;
+}
+
+/* The WIN Modal (background) */
+
+#winModal {
+  display: none;
+  /* Hidden by default */
+  /* overflow: hidden; */
+  /* Enable scroll if needed */
+}
+
+/* Modal Content/Box */
+
+.winContent {
+  /* overflow: hidden; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.playagain-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.leaderboard-container {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+ 
+}
+
+.starsW,
+.starsB {
+  color: #ffd700;
+}
+
+/* CSS for Flipping the Flip-Container */
+
+/* entire container, keeps perspective */
+
+/* flip the pane when hovered */
+
+.flip-container .flipper:active,
+.flip-container .flipper.active {
+  transform: rotateY(-180deg);
+}
+
+/* hide back of pane during swap */
+
+.front {
+  z-index: 1;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+  position: relative;
+}
+
+/* back, initially hidden pane */
+
+.back {
+  z-index: 0;
+  transform: rotateY(-180deg);
+  position: absolute;
+}
+
+/* hide back of pane during swap */
+
+.front,
+.back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+}
+#Leaderboard {
+  /* position: absolute; */
+  color: aliceblue;
+
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: -webkit-linear-gradient(top, #3a404d, #181c26);
+  background: linear-gradient(to bottom, #3a404d, #181c26);
+  border-radius: 10px;
+  box-shadow: 0 7px 30px rgba(62, 9, 11, 0.3);
+}
+.leaderboard-cols {
+  display: flex;
+  gap: 12px;
+}
+
+.leaderboard-cols > * {
+  display: inline-block;
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #ffd700;
+}
+.header {
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reset-button {
+  font-size: 20px;
+  background-color: #3a404d;
+  color: aliceblue;
+  align-items: center;
+}
+
+/* Media Queries for different screen sizes */
+
+@media (min-width: 1200px) {
+  html {
+    height: 100%;
+  }
+  .title,
+  .tag-line {
+    font-size: 35px;
+  }
+  .timer {
+    padding-left: 3% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  html {
+    height: 100%;
+  }
+  .timer {
+    padding-left: 3% !important;
+  }
+  .counter {
+    padding-right: 3% !important;
+  }
+}
+
+@media (max-width: 915px) {
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(../img/bpi.png);
+    background-size: cover;
+    width: 100%;
+    /* overflow: hidden; */
+  }
+
+  .fs {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 572px) {
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(../img/bpi.png);
+    background-size: cover;
+    width: 100%;
+    /* overflow: hidden; */
+  }
+  .leaderboard-container {
+    justify-content: center;
+    align-items: center;
+  }
+  .leaderboard-cols > * {
+    width: 80px;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+  }
+  .header{
+    font-size: 16px;
+  }
+  .title,
+  .tag-line {
+
+    font-size: 20px;
+  }
+  #startModal {
+    height: 80vh;
+  }
+  .startContent {
+    padding-top: 5vh;
+  }
+  #start {
+    margin-top: 52vh;
+  }
+  #winModal {
+    height: 80vh;
+  }
+  .timer,
+  .counter,
+  .refresh,
+  .rating {
+    text-align: center;
+  }
+  .fs {
+    font-size: 20px !important;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 500px) {
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(../img/bpi.png);
+    background-size: cover;
+    width: 100%;
+    /* overflow: hidden; */
+  }
+  .leaderboard-container {
+    display: flex;
+    justify-content: center;
+  }
+  .leaderboard-cols > * {
+    width: 78px;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+  }
+  .header{
+    font-size: 16px;
+  }
+  .foot {
+    padding-top: 9%;
+  }
+}
+
+@media (max-width: 425px) {
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(../img/bpi.png);
+    overflow: hidden;
+    background-size: cover;
+    width: 100%;
+  }
+  .leaderboard-container {
+    display: flex;
+    justify-content: center;
+    padding-left: 10px;
+  }
+  .leaderboard-cols > * {
+    font-size: 18px;
+    width: 70px;
+    justify-content: center;
+    align-items: center;
+  }
+  .header{
+    font-size: 16px;
+  }
+  .board {
+    padding-top: 10%;
+  }
+  #startModal {
+    height: 60vh;
+  }
+  #start {
+    margin-top: 36vh;
+  }
+  .title,
+  .tag-line {
+    font-size: 25px;
+  }
+  .foot {
+    padding-top: 9%;
+  }
+  .fs {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 325px) {
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(../img/bpi.png);
+    background-size: cover;
+    width: 100%;
+    /* overflow: hidden; */
+  }
+  .leaderboard-container {
+    display: flex;
+    justify-content: center;
+  }
+  .leaderboard-cols > * {
+    font-size: 14px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+  }
+  .header{
+    font-size: 18px;
+  }
+  .board {
+    padding-top: 10%;
+  }
+  #startModal {
+    height: 59vh;
+  }
+  #start {
+    margin-top: 33vh;
+  }
+  .title,
+  .tag-line {
+    font-size: 25px;
+  }
+  .foot {
+    padding-top: 10%;
+  }
+  .fs {
+    font-size: 16px !important;
+  }
+}

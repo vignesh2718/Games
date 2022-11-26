@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!-- Including Meta Tags -->
+      <meta charset="UTF-8">
+      <meta name="author" content="Madhur Taneja">
+      <meta name="description" content="Memory Game">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Title of Project -->
+      <title> Memory Game </title>
+      <!-- Linking Animate.Css Library  -->
+      <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+      <!-- Adding Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+      <!-- Linking Css and Bootstrap -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style.css">
+   </head>
+   <body>
+      <!-- Bootstrap Container, Rows and Columns --><br/><br/>
+      <div class="container">
+         <header class="row row-centered">
+            <h1 class="title col-xs-12 col-sm-12 col-md-12" style="font-size: 40px; color:white;"> <strong>MEMORY PUZZLE</strong> </h1>
+         </header>
+         <!-- Main Section -->
+         <section class="board row">
+            <!-- Cards Container -->
+            <div class="flip-container col-9 col-sm-8 col-md-7 col-lg-5 col-xl-5 col-centered">
+               <!-- Start Modal -->
+               <div id="startModal" class="row animated zoomIn">
+                  <div class="startContent col-xs-12 col-sm-12 col-md-12 col-centered">
+                     <div class="animated infinite pulse" id="start">
+                        <i class="fs fa fa-play-circle-o fa-2x" aria-hidden="true"></i>	
+                        <h3 class="fs"> Start Game</h3>
+                     </div> 
+                  
+              <br/> <br/>
+               <h2 class="tag-line col-xs-12 col-sm-12 col-md-12" style="font-size: 20px;">Flip the two tiles consecutively to uncover them. </h2>
+               </div>
+            </div> <!-- Cards Row -->
+               <div class="fliprow row  animated fadeIn">
+               </div>
+               <!-- Win Modal -->
+               
+            </div>
+         </section>
+               <div id="winModal" >
+                  <div class="winContent">
+                        {{!-- <h1 style="color: white;"> You Won! </h1> --}}
+                        <!--<h3> Score: <span class="score">  </span> </h3>-->
+                         <div  class="playagain-btn" onclick="window.location.reload()">
+                           <div style="display: flex;flex-direction:column;  justify-content:start;align-items:center">
+                              <i class="fa fa-repeat fa-4x" style="color: white;" aria-hidden="true"></i>	
+                           <h3 style="color: white;"> Play Again </h3>
+                           </div>
+                        </div>
+                        <div class="leaderboard-container">
+                           <div id="Leaderboard" id="ld"> 
+                              <div>
+                                 <h3 class="header"> 🏆LEADERBOARD 🏆</h3>
+                              </div>
+                              <div class="leaderboard-cols">
+                                 <h3 class="name">Name <span id="total_name" name="name"></span></h3>
+                                 <h3 class="moves" >Moves<span id="total_moves" name="moves"></span></h3>
+                                 <h3 class="match"> Match<span id="total_match" name="match"></span></h3>
+                                 <h3 class="score"> Score<span id="total_score" name="score"></span></h3>
+                              </div>
+                       
+                        </div>
+                     
+                          <div id="Leaderboard" id="ld"> 
+                              <div>
+                               <h3 class="header">Your Score</h3>
+                              </div>
+                              <div class="leaderboard-cols">
+                                 <h3 class="name">Name <span id="total_name-local" name="name"></span></h3>
+                                 <h3 class="moves" >Moves<span id="total_moves-local" name="moves"></span></h3>
+                                 <h3 class="match"> Match<span id="total_match-local" name="match"></span></h3>
+                                 <h3 class="score"> Score<span id="total_score-local" name="score"></span></h3>
+                              </div>
+                        <!-- Stars Counter -->
+                        {{!-- <div class="starsW">
+                        </div> --}}
+                        <!-- Time Counter -->
+                        {{!-- <div class="timer">
+                           <h3 class="fs" style="color: white;">Time&nbsp;Out
+                              
+                              <!-- <span id="timeW"> 0 </span> Sec(s)  -->
+                           </h3> --}}
+                              <!-- <h2 class="">Score: <span id="score" class="data"> 0 </span></h2> -->
+                        </div>
+                           </div> </div>
+                           
+                     
+                  </div>
+               </div>
+      </div>
+      <footer class="row foot">
+         <!-- Time Counter -->
+         <div class="timer col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-centered">
+            <h3 class="fs">Time:&nbsp;<span id="timeB">60</span></h3>
+         </div>
+         <!-- Stars Counter -->
+        <!-- <div class="rating col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-centered">
+            <h3 class="fs">Rating:&nbsp;<span class="starsB"></span></h3>
+         </div>-->
+         <!-- Refresh Game -->
+         <div class="refresh col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 col-centered" onclick="resetGame()">
+            <h3 class="fs">
+            Restart: <i class="fa fa-refresh" aria-hidden="true"></i>
+         </div>
+         <!-- Moves Counter -->
+         <div class="counter col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+            <h3 class="fs">Moves: <span id="moves" class="data"> 0 </span></h3>
+         </div>
+
+
+      </footer>
+      <!-- Linking Fonts Awesome -->
+      <script src="https://use.fontawesome.com/c7ee18e47e.js"></script>
+      <!-- Linking jQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Linking Javascript Files -->
+
+      <script src="js/engine.js"></script>
+   </body>
+</html>
